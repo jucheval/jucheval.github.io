@@ -1,34 +1,31 @@
-"adams":
-  - firstname: ["Edwin", "E.", "E. P.", "Edwin Plimpton"]
-    url: https://en.wikipedia.org/wiki/Edwin_Plimpton_Adams
+"laloe":
+  - firstname: ["Thomas", "T."]
+    url: https://math.univ-cotedazur.fr/~laloe/
 
-"podolsky":
-  - firstname: ["Boris", "B.", "B. Y.", "Boris Yakovlevich"]
-    url: https://en.wikipedia.org/wiki/Boris_Podolsky
+"reynaud":
+  - firstname: ["Patricia", "P."]
+    url: https://math.univ-cotedazur.fr/~reynaudb/
 
-"rosen":
-  - firstname: ["Nathan", "N."]
-    url: https://en.wikipedia.org/wiki/Nathan_Rosen
+"duarte":
+  - firstname: ["Aline", "A."]
+    url: https://www.ime.usp.br/~aduarte/
 
-"bach":
-  - firstname: ["Johann Sebastian", "J. S."]
-    url: https://en.wikipedia.org/wiki/Johann_Sebastian_Bach
+"locherbach":
+  - firstname: ["Eva", "E."]
+    url: https://www.researchgate.net/profile/Eva-Loecherbach
 
-  - firstname: ["Carl Philipp Emanuel", "C. P. E."]
-    url: https://en.wikipedia.org/wiki/Carl_Philipp_Emanuel_Bach
+"ost":
+  - firstname: ["Guilherme", "G."]
+    url: https://sites.google.com/view/ostguilherme/home
 
-"przibram":
-  - firstname: ["Karl"]
-    url: https://link.springer.com/article/10.1007/s00016-019-00242-z
+"melnykova":
+  - firstname: ["Anna", "A."]
+    url: https://www.amelnykova.com
 
-"schrodinger":
-  - firstname: ["Erwin"]
-    url: https://en.wikipedia.org/wiki/Erwin_Schr%C3%B6dinger
+"coeurjolly":
+  - firstname: ["Jean-Francois", "J.-F."]
+    url: https://sites.google.com/site/homepagejfc/
 
-"lorentz":
-  - firstname: ["Hendrik Antoon"]
-    url: https://en.wikipedia.org/wiki/Hendrik_Lorentz
-
-"planck":
-  - firstname: ["Max"]
-    url: https://en.wikipedia.org/wiki/Max_Planck
+"waagepetersen":
+  - firstname: ["Rasmus", "R."]
+    url: https://people.math.aau.dk/~rw/
