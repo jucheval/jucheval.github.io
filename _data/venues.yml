@@ -1,9 +1,44 @@
-"AJP":
-  url: https://aapt.scitation.org/journal/ajp
-  color: "#00369f"
+"PhD Thesis":
+  color: "#FF4E02"
 
-"PhysRev":
-  url: https://journals.aps.org/
+"Habilitation Thesis":
+  color: "#FF4E02"
 
-"Vision":
-  color: "#009f36"
+"Preprint":
+  color: "#172942"
+
+"Biom. J.":
+  url: https://onlinelibrary.wiley.com/journal/15214036
+  color: "#7CC29F"
+
+"M3AS":
+  url: https://www.worldscientific.com/worldscinet/m3as
+  color: "#007ECA"
+
+"Elec. J. Prob.":
+  url: https://imstat.org/journals-and-publications/electronic-journal-of-probability/
+  color: "#016DA5"
+
+"Stoch. Proc. Appl.":
+  url: https://www.sciencedirect.com/journal/stochastic-processes-and-their-applications
+  color: "#E4E839"
+
+"J. Stat. Phys.":
+  url: https://link.springer.com/journal/10955
+  color: "#938F01"
+
+"J. App. Prob.":
+  url: https://www.cambridge.org/core/journals/journal-of-applied-probability
+  color: "#01A2E3"
+
+"ESAIM: ProcS":
+  url: https://www.esaim-proc.org
+  color: "#D10D6C"
+
+"Adv. App. Prob.":
+  url: https://www.cambridge.org/core/journals/advances-in-applied-probability
+  color: "#EB682A"
+
+"Ann. Stat.":
+  url: https://imstat.org/journals-and-publications/annals-of-statistics/
+  color: "#BCDCED"
