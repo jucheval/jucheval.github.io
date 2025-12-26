@@ -1,157 +1,243 @@
 {
   "basics": {
-    "name": "Albert Einstein",
-    "label": "Scientist",
+    "name": "Julien Chevallier",
+    "label": "Assitant professor, HDR",
     "image": "",
-    "email": "albert@einstein.de",
-    "phone": "(912) 123-4567",
-    "url": "https://alshedivat.github.io/al-folio/",
-    "summary": "A German-born theoretical physicist, widely ranked among the greatest and most influential scientists of all time",
+    "email": "julien.chevallier1@univ-grenoble-alpes.fr",
+    // "phone": "",
+    "url": "https://jucheval.github.io/",
+    // "summary": "A German-born theoretical physicist, widely ranked among the greatest and most influential scientists of all time",
     "location": {
-      "address": "2712 Broadway St",
-      "postalCode": "CA 94115",
-      "city": "San Francisco",
-      "countryCode": "US",
-      "region": "California"
+      "address": "LJK, Université Grenoble Alpes"
+      // "postalCode": "CA 94115",
+      // "city": "San Francisco",
+      // "countryCode": "US",
+      // "region": "California"
     },
     "profiles": [
       {
-        "network": "Twitter",
-        "username": "AlbertEinstein",
-        "url": "https://twitter.com/AlbertEinstein"
+        // "network": "Twitter",
+        // "username": "AlbertEinstein",
+        // "url": "https://twitter.com/AlbertEinstein"
       }
     ]
   },
   "work": [
     {
-      "name": "Institute for Advanced Study, Princeton University",
-      "position": "Professor of Theoretical Physics",
-      "url": "https://example.com",
-      "startDate": "1933-01-01",
-      "endDate": "1955-01-01",
-      "summary": "Teaching at Palmer Physical Laboratory (now 302 Frist Campus Center). While not a professor at Princeton, I associated with the physics professors and continued to give lectures on campus.",
-      "highlights": ["Relativity"]
+      "name": "Université Grenoble Alpes",
+      "location": "Grenoble, France",
+      "position": "Assistant professor in probability and statistics",
+      "url": "https://www.univ-grenoble-alpes.fr",
+      "startDate": "2017-09-01",
+      "endDate": "today",
+      "summary": "Teaching probability and statistics at Département licence sciences et technologies and UFR Informatique, mathématiques et mathématiques appliquées. Researching at Laboratoire Jean Kuntzmann in the SVH team.",
+      "highlights": []
+    },
+    {
+      "name": "Cergy Paris Université",
+      "position": "Postdoctoral researcher",
+      "url": "https://www.cyu.fr",
+      "startDate": "2016-09-15",
+      "endDate": "2017-08-31",
+      "summary": "Spatial mean field theory applied to Hawkes processes. Under the supervision of <a href='https://www.researchgate.net/profile/Eva-Loecherbach'>Eva Löcherbach</a>.",
+      "highlights": []
     }
   ],
   "volunteer": [
     {
-      "organization": "People's Climate March",
-      "location": "Zurich, Switzerland",
-      "position": "Lead Organizer",
-      "url": "https://example.com",
-      "startDate": "2014-04-01",
-      "endDate": "2015-07-01",
-      "summary": "Lead organizer for the New York City branch of the People's Climate March, the largest climate march in history.",
-      "highlights": ["Awarded 'Climate Hero' award by Greenpeace for my efforts organizing the march.", "Men of the year 2014 by Time magazine"]
+      "organization": "SVH",
+      "position": "Team leader",
+      "startDate": "2022-09",
+      "endDate": "2025-07",
+      "summary": "The team counts 13 permanent members."
+    },
+    {
+      "organization": "Scientific journals",
+      "position": "Reviewer",
+      "startDate": "2016",
+      "endDate": "today",
+      "summary": "Peer review for various scientific journals:",
+      "highlights": [
+        "Annals of Applied Probability (4)",
+        "Acta Applicandae Mathematicae (1)",
+        "Annales de l'IHP (B) Probabilités et Statistique (3)",
+        "ALEA (1)",
+        "Applied Probability Journals (1)",
+        "ESAIM: Probability and Statistics (1)",
+        "Electronic Communications in Probability (1)",
+        "Electronic Journal of Probability (2)",
+        "Journal of Approximation Theory (1)",
+        "Journal of Mathematical Neuroscience (2)",
+        "Journal of Statistical Physics (1)",
+        "Journal of Theoretical Probability (1)",
+        "Kinetic and Related Models (2)",
+        "Scandinavian Journal of Statistics (1)",
+        "Stochastic Processes and their Applications (6)",
+        "Statistics and Probability Letters (2)",
+        "Transactions on Modeling and Computer Simulation (1)"
+      ]
+    },
+    {
+      "position": "Selection committee member",
+      "summary": "Selection committee member for several assistant professor positions:",
+      "highlights": [
+        "Université de Strasbourg, 2020",
+        "ENSIMAG, 2022"
+      ]
+    },
+    {
+      "position": "Conference organizer",
+      "summary": "Member of the organization team of several conferences:",
+      "highlights": [
+        "<a href='https://www.mathenjeans.fr/congres2019/grenoble'>MathEnJeans 2019 in Grenoble</a>",
+        "<a href='https://biohasard2020.sciencesconf.org'>BioHasard 2021</a>",
+        "<a href='https://ssiab15.dyndoc.fr'>SSIAB15</a>",
+        "<a href='https://geosto25.sciencesconf.org'>GeoSto25</a>"
+      ]
     }
   ],
   "education": [
     {
-      "institution": "University of Zurich, Zurich, Switzerland",
-      "location": "Zurich, Switzerland",
-      "url": "https://www.uzh.ch/",
-      "area": "Software Development",
-      "studyType": "PhD",
-      "startDate": "1905-01-01",
-      "endDate": "1905-01-01",
-      "score": "10",
-      "courses": ["Theory of Relativity"]
+      "institution": "Université Grenoble Alpes",
+      "location": "Grenoble, France",
+      "url": "https://www.univ-grenoble-alpes.fr",
+      "area": "Applied Mathematics",
+      "studyType": "Habilitation",
+      "startDate": "2025-04-01",
+      "endDate": "2025-12-12",
+      "courses": [
+        "Probability",
+        "Statistics",
+        "Partial differential equations"
+      ]
+    },
+    {
+      "institution": "Université Côté d'Azur",
+      "location": "Nice, France",
+      "url": "https://theses.hal.science/tel-01415622",
+      "area": "Applied Mathematics",
+      "studyType": "PhD Thesis",
+      "startDate": "2013-09-01",
+      "endDate": "2016-09-06",
+      "courses": [
+        "Mean field approximation of Hawkes processes"
+      ]
+    },
+    {
+      "url": "https://agreg.org",
+      "area": "Competitive examination for top-level teaching profession",
+      "studyType": "Aggregation in Mathematics",
+      "startDate": "2012"
     }
   ],
   "awards": [
-    {
-      "title": "Nobel Prize in Physics",
-      "date": "1921-11-01",
-      "awarder": "Royal Swedish Academy of Sciences",
-      "url": "https://www.nobelprize.org/prizes/physics/1921/einstein/biographical/",
-      "summary": "The Nobel Prizes are five separate prizes that, according to Alfred Nobel's will of 1895, are awarded to 'those who, during the preceding year, have conferred the greatest benefit to humankind.'"
-    }
+    // {
+    //   "title": "Nobel Prize in Physics",
+    //   "date": "1921-11-01",
+    //   "awarder": "Royal Swedish Academy of Sciences",
+    //   "url": "https://www.nobelprize.org/prizes/physics/1921/einstein/biographical/",
+    //   "summary": "The Nobel Prizes are five separate prizes that, according to Alfred Nobel's will of 1895, are awarded to 'those who, during the preceding year, have conferred the greatest benefit to humankind.'"
+    // }
   ],
   "certificates": [
-    {
-      "name": "Machine Learning",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-location-dot"
-    },
-    {
-      "name": "Quantum Computing",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-tag"
-    },
-    {
-      "name": "Quantum Information",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-envelope"
-    },
-    {
-      "name": "Quantum Cryptography",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-hashtag"
-    },
-    {
-      "name": "Quantum Communication",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-calendar"
-    },
-    {
-      "name": "Quantum Teleportation",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-clipboard-check"
-    }
+    // {
+    //   "name": "Machine Learning",
+    //   "date": "2018-01-01",
+    //   "issuer": "Stanford University",
+    //   "url": "https://example.com",
+    //   "icon": "fa-solid fa-location-dot"
+    // },
+    // {
+    //   "name": "Quantum Computing",
+    //   "date": "2018-01-01",
+    //   "issuer": "Stanford University",
+    //   "url": "https://example.com",
+    //   "icon": "fa-solid fa-tag"
+    // },
+    // {
+    //   "name": "Quantum Information",
+    //   "date": "2018-01-01",
+    //   "issuer": "Stanford University",
+    //   "url": "https://example.com",
+    //   "icon": "fa-solid fa-envelope"
+    // },
+    // {
+    //   "name": "Quantum Cryptography",
+    //   "date": "2018-01-01",
+    //   "issuer": "Stanford University",
+    //   "url": "https://example.com",
+    //   "icon": "fa-solid fa-hashtag"
+    // },
+    // {
+    //   "name": "Quantum Communication",
+    //   "date": "2018-01-01",
+    //   "issuer": "Stanford University",
+    //   "url": "https://example.com",
+    //   "icon": "fa-solid fa-calendar"
+    // },
+    // {
+    //   "name": "Quantum Teleportation",
+    //   "date": "2018-01-01",
+    //   "issuer": "Stanford University",
+    //   "url": "https://example.com",
+    //   "icon": "fa-solid fa-clipboard-check"
+    // }
   ],
   "publications": [
-    {
-      "name": "Zur Elektrody/namik bewegter Körper",
-      "publisher": "Annalen der Physik",
-      "releaseDate": "1905-06-30",
-      "url": "https://en.wikisource.org/wiki/Translation:On_the_Electrodynamics_of_Moving_Bodies",
-      "summary": "It concerned an interpretation of the Michelson–Morley experiment and the properties of light and time. Special relativity incorporates the principle that the speed of light is the same for all inertial observers regardless of the state of motion of the source."
-    },
-    {
-      "name": "Über einen die Erzeugung und Verwandlung des Lichtes betreffenden heuristischen Gesichtspunkt",
-      "publisher": "Annalen der Physik",
-      "releaseDate": "1905-03-18",
-      "url": "https://de.wikisource.org/wiki/Über_einen_die_Erzeugung_und_Verwandlung_des_Lichtes_betreffenden_heuristischen_Gesichtspunkt",
-      "summary": "In the second paper, he applied the quantum theory to light to explain the photoelectric effect. In particular, he used the idea of light quanta (photons) to explain experimental results, but stressed the importance of the experimental results. The importance of his work on the photoelectric effect earned him the Nobel Prize in Physics in 1921."
-    },
-    {
-      "name": "Die Grundlage der allgemeinen Relativitätstheorie",
-      "publisher": "Annalen der Physik",
-      "releaseDate": "1916-03-20",
-      "url": "https://de.wikisource.org/wiki/Die_Grundlage_der_allgemeinen_Relativitätstheorie",
-      "summary": "The publication of the theory of general relativity made him internationally famous. He was professor of physics at the universities of Zurich (1909–1911) and Prague (1911–1912), before he returned to ETH Zurich (1912–1914)."
-    }
+    // {
+    //   "name": "Zur Elektrody/namik bewegter Körper",
+    //   "publisher": "Annalen der Physik",
+    //   "releaseDate": "1905-06-30",
+    //   "url": "https://en.wikisource.org/wiki/Translation:On_the_Electrodynamics_of_Moving_Bodies",
+    //   "summary": "It concerned an interpretation of the Michelson–Morley experiment and the properties of light and time. Special relativity incorporates the principle that the speed of light is the same for all inertial observers regardless of the state of motion of the source."
+    // },
+    // {
+    //   "name": "Über einen die Erzeugung und Verwandlung des Lichtes betreffenden heuristischen Gesichtspunkt",
+    //   "publisher": "Annalen der Physik",
+    //   "releaseDate": "1905-03-18",
+    //   "url": "https://de.wikisource.org/wiki/Über_einen_die_Erzeugung_und_Verwandlung_des_Lichtes_betreffenden_heuristischen_Gesichtspunkt",
+    //   "summary": "In the second paper, he applied the quantum theory to light to explain the photoelectric effect. In particular, he used the idea of light quanta (photons) to explain experimental results, but stressed the importance of the experimental results. The importance of his work on the photoelectric effect earned him the Nobel Prize in Physics in 1921."
+    // },
+    // {
+    //   "name": "Die Grundlage der allgemeinen Relativitätstheorie",
+    //   "publisher": "Annalen der Physik",
+    //   "releaseDate": "1916-03-20",
+    //   "url": "https://de.wikisource.org/wiki/Die_Grundlage_der_allgemeinen_Relativitätstheorie",
+    //   "summary": "The publication of the theory of general relativity made him internationally famous. He was professor of physics at the universities of Zurich (1909–1911) and Prague (1911–1912), before he returned to ETH Zurich (1912–1914)."
+    // }
   ],
   "skills": [
     {
-      "name": "Physics",
-      "level": "Master",
-      "icon": "fa-solid fa-hashtag",
+      "name": "Mathematics",
+      "icon": "fa-solid fa-tag",
       "keywords": [
-        "Quantum Mechanics",
-        "Quantum Computing",
-        "Quantum Information",
-        "Quantum Cryptography",
-        "Quantum Communication",
-        "Quantum Teleportation"
+        "Probability",
+        "Statistics",
+        "Partial differential equations"
+      ]
+    },
+    {
+      "name": "Neurosciences",
+      "icon": "fa-solid fa-tag",
+      "keywords": [
+        "Spiking neurons",
+        "Neural networks",
+        "neural field equation"
+      ]
+    },
+    {
+      "name": "Julia programming language",
+      "icon": "fa-solid fa-tag",
+      "keywords": [
+        "Simulation algorithms",
+        "Pluto notebooks",
+        "Makie plots and animations"
       ]
     }
   ],
   "languages": [
     {
-      "language": "German",
+      "language": "French",
       "fluency": "Native speaker",
       "icon": ""
     },
@@ -162,39 +248,57 @@
     }
   ],
   "interests": [
-    {
-      "name": "Physics",
-      "icon": "fa-solid fa-tag",
-      "keywords": [
-        "Quantum Mechanics",
-        "Quantum Computing",
-        "Quantum Information",
-        "Quantum Cryptography",
-        "Quantum Communication",
-        "Quantum Teleportation"
-      ]
-    }
+    // {
+    //   "name": "Mathematics",
+    //   "icon": "fa-solid fa-tag",
+    //   "keywords": [
+    //     "Probability",
+    //     "Statistics",
+    //     "Partial differential equations"
+    //   ]
+    // },
+    // {
+    //   "name": "Neurosciences",
+    //   "icon": "fa-solid fa-tag",
+    //   "keywords": [
+    //     "Spiking neurons",
+    //     "Neural networks",
+    //     "neural field equation"
+    //   ]
+    // },
+    // {
+    //   "name": "Julia programming language",
+    //   "icon": "fa-solid fa-tag",
+    //   "keywords": [
+    //     "Simulation algorithms",
+    //     "Pluto notebooks",
+    //     "Makie plots and animations"
+    //   ]
+    // }
   ],
   "references": [
-    {
-      "name": "Professor John Doe",
-      "icon": "fa-solid fa-laptop",
-      "reference": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit. D"
-    },
-    {
-      "name": "Professor John Doe",
-      "icon": "fa-solid fa-thumbtack",
-      "reference": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit. D"
-    }
+    // {
+    //   "name": "Professor John Doe",
+    //   "icon": "fa-solid fa-laptop",
+    //   "reference": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit. D"
+    // },
+    // {
+    //   "name": "Professor John Doe",
+    //   "icon": "fa-solid fa-thumbtack",
+    //   "reference": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit. D"
+    // }
   ],
   "projects": [
-    {
-      "name": "Quantum Computing",
-      "summary": "Quantum computing is the use of quantum-mechanical phenomena such as superposition and entanglement to perform computation. Computers that perform quantum computations are known as quantum computers.",
-      "highlights": ["Quantum Teleportation", "Quantum Cryptography"],
-      "startDate": "2018-01-01",
-      "endDate": "2018-01-01",
-      "url": "https://example.com"
-    }
+    // {
+    //   "name": "Quantum Computing",
+    //   "summary": "Quantum computing is the use of quantum-mechanical phenomena such as superposition and entanglement to perform computation. Computers that perform quantum computations are known as quantum computers.",
+    //   "highlights": [
+    //     "Quantum Teleportation",
+    //     "Quantum Cryptography"
+    //   ],
+    //   "startDate": "2018-01-01",
+    //   "endDate": "2018-01-01",
+    //   "url": "https://example.com"
+    // }
   ]
 }
