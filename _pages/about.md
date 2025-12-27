@@ -9,9 +9,13 @@ profile:
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+    <p>Bureau 136</p>
+    <p>LJK (UMR CNRS 5224)</p>
+    <p>Université Grenoble Alpes</p>
+    <p>Bâtiment IMAG</p>
+    <p>150 Place du Torrent</p>
+    <p>38401 Saint-Martin-d'Hères</p>
+    <p>FRANCE</p>
 
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
