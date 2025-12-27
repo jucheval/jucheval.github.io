@@ -26,12 +26,16 @@
     {
       "name": "Université Grenoble Alpes",
       "location": "Grenoble, France",
-      "position": "Assistant professor in probability and statistics",
+      "position": "Assistant professor in Applied Mathematics",
       "url": "https://www.univ-grenoble-alpes.fr",
       "startDate": "2017-09-01",
       "endDate": "today",
-      "summary": "Teaching probability and statistics at Département licence sciences et technologies and UFR Informatique, mathématiques et mathématiques appliquées. Researching at Laboratoire Jean Kuntzmann in the SVH team.",
-      "highlights": []
+      "summary": "Probability and statistics",
+      "highlights": [
+        "Teaching at Département licence sciences et technologies and UFR Informatique, mathématiques et mathématiques appliquées.",
+        "Research at Laboratoire Jean Kuntzmann in the <a href='https://svh.imag.fr'>SVH team</a>.",
+        "Assigned to the <a href='https://team.inria.fr/statify/'>Statify team</a> in <a href='https://www.inria.fr/fr/centre-inria-universite-grenoble-alpes'>Centre Inria de l'Université Grenoble Alpes</a> between 2023 and 2025."
+      ]
     },
     {
       "name": "Cergy Paris Université",
@@ -46,6 +50,7 @@
   "volunteer": [
     {
       "organization": "SVH",
+      "url": "https://svh.imag.fr",
       "position": "Team leader",
       "startDate": "2022-09",
       "endDate": "2025-07",
@@ -121,6 +126,18 @@
       "endDate": "2016-09-06",
       "courses": [
         "Mean field approximation of Hawkes processes"
+      ]
+    },
+    {
+      "institution": "ENS de Lyon",
+      "location": "Lyon, France",
+      "url": "https://www.ens-lyon.fr",
+      "area": "Mathematics",
+      "studyType": "BSc, MSc and aggregation",
+      "startDate": "2013-09-01",
+      "endDate": "2016-09-06",
+      "courses": [
+        "Entrance via competitive examination"
       ]
     },
     {
