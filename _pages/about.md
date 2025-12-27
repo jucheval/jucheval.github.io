@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
+subtitle: Assistant professor (probability and statistics) at <a href='https://www.univ-grenoble-alpes.fr'>UGA</a>.
 
 profile:
   align: right
