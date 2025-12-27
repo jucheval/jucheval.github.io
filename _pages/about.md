@@ -2,20 +2,16 @@
 layout: about
 title: about
 permalink: /
-subtitle: Assistant professor (probability and statistics) at <a href='https://www.univ-grenoble-alpes.fr'>UGA</a>.
+subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
 
 profile:
   align: right
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-  <p>Bureau 136</p>
-  <p>LJK (UMR CNRS 5224)</p>
-  <p>Université Grenoble Alpes</p>
-  <p>Bâtiment IMAG</p>
-  <p>150 Place du Torrent</p>
-  <p>38401 Saint-Martin-d'Hères</p>
-  <p>FRANCE</p>
+    <p>555 your office number</p>
+    <p>123 your address street</p>
+    <p>Your City, State 12345</p>
 
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
@@ -31,6 +27,8 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I have been an assistant professor in applied mathematics since 2017 (sabbatical since September 2025) in [LJK](https://www-ljk.imag.fr) at [Université Grenoble Alpes](https://www.univ-grenoble-alpes.fr).
+Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
 
-My research interests are partial differential equations, statistics and mainly probabilities. In terms of applications, I am focusing on neuroscience modelling and data analysis. Recently, I am looking for more concrete research areas. In that respect, I am turning to open-source software and the Julia programming language to develop simulation algorithms and produce illustrations of mathematical results.
+Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+
+Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
