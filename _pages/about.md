@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Assistant professor (probability and statistics) at <a href='https://www.univ-grenoble-alpes.fr'>UGA</a>.
+subtitle: Assistant professor (applied mathematics).
 
 profile:
   align: right
@@ -11,7 +11,6 @@ profile:
   more_info: >
     <p>Bureau 136</p>
     <p>LJK (UMR CNRS 5224)</p>
-    <p>Université Grenoble Alpes</p>
     <p>Bâtiment IMAG</p>
     <p>150 Place du Torrent</p>
     <p>38401 Saint-Martin-d'Hères</p>
@@ -31,6 +30,6 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I have been an assistant professor in applied mathematics since 2017 (sabbatical since September 2025) in [LJK](https://www-ljk.imag.fr) at [Université Grenoble Alpes](https://www.univ-grenoble-alpes.fr).
+I have been an assistant professor since 2017 (sabbatical since September 2025) in [LJK](https://www-ljk.imag.fr) at [Université Grenoble Alpes](https://www.univ-grenoble-alpes.fr).
 
-My research interests are partial differential equations, statistics and mainly probabilities. In terms of applications, I am focusing on neuroscience modelling and data analysis. Recently, I am looking for more concrete research areas. In that respect, I am turning to open-source software and the Julia programming language to develop simulation algorithms and produce illustrations of mathematical results.
+My research interests are partial differential equations, statistics and mainly probabilities. In terms of applications, I am focusing on neuroscience modelling and data analysis. Recently, I am looking for research areas with more impact on the community and our daily lives. In that respect, I am turning to open-source software and the Julia programming language to develop simulation algorithms and produce illustrations of mathematical results.
