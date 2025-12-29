@@ -39,7 +39,7 @@ ninja.data = [{
           },
         },{id: "nav-students",
           title: "Students",
-          description: "members of the lab or group",
+          description: "",
           section: "Navigation",
           handler: () => {
             window.location.href = "/students/";
@@ -74,16 +74,21 @@ ninja.data = [{
             },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
           title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
           description: "",
-          section: "News",},{id: "projects-anr-chamane",
+          section: "News",},{id: "projects-test",
+          title: 'Test',
+          description: "description",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/courses/test/";
+            },},{id: "projects-anr-chamane",
           title: 'ANR ChaMaNe',
           description: "Mathematical Challenges in Neurosciences (2020-2025) PI: Delphine Salort",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/anr_chamane/";
+              window.location.href = "/projects/research/anr_chamane/";
             },},{id: "projects-stepp-meteo",
           title: 'STePP-Meteo',
           description: "Spatio-temporal point processes for meteorological data (2022-2025) PI: Jean-François Coeurjolly",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/stepp_meteo/";
+              window.location.href = "/projects/research/stepp_meteo/";
             },},{
         id: 'social-arxiv',
         title: 'arXiv',
