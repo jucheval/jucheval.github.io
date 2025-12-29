@@ -2,10 +2,12 @@
 layout: page
 permalink: /software/
 title: Software
-description: Edit the `_data/repositories.yml` and change the `github_users` and `github_repos` lists to include your own GitHub profile and repositories.
+description: 
 nav: true
 nav_order: 3
 ---
+
+Most of my software development is related to the [Julia programming language](https://julialang.org). In particular, the [HDR repository](https://github.com/jucheval/HDR) contains all the material I used to produce the figures for the manuscript and the slides for the defense.
 
 {% if site.data.repositories.github_users %}
 
