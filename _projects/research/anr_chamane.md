@@ -6,7 +6,7 @@ description: >
     PI: <a href='https://www.lcqb.upmc.fr/users/salort'>Delphine Salort</a>
 img: assets/img/brain.jpg
 importance: 2
-category: work
+category: Research
 related_publications: false
 ---
 
