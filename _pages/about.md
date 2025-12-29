@@ -32,6 +32,6 @@ latest_posts:
 
 I have been an assistant professor since 2017 (sabbatical since September 2025) in [LJK](https://www-ljk.imag.fr) at [Université Grenoble Alpes](https://www.univ-grenoble-alpes.fr).
 
-My research interests are partial differential equations, statistics and mainly probabilities. In terms of applications, I am focusing on neuroscience modelling and data analysis. Recently, I am looking for research areas with more impact on the community and our daily lives. In that respect, I am turning to open-source software and the Julia programming language to develop simulation algorithms and produce illustrations of mathematical results.
+My research interests are partial differential equations, statistics and mainly probabilities. In terms of applications, I am focusing on neuroscience modelling and data analysis. Recently, I am looking for research areas with more impact on the community and our daily lives. In that respect, I am turning to open-source software and the [Julia programming language](https://julialang.org) to develop simulation algorithms and produce illustrations of mathematical results.
 
 My contact and social media informations are located at the bottom of this page.
