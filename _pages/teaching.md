@@ -1,17 +1,13 @@
 ---
 layout: page
 permalink: /teaching/
-title: teaching
-description: Course materials, schedules, and resources for classes taught.
+title: Teaching
+description: Materials for some courses I taught.
 nav: true
-display_categories: [course]
+display_categories: [Université Grenoble Alpes, Miscellaneous, Cergy Paris Université]
 nav_order: 6
 calendar: true
 ---
-
-<!-- For now, this page is assumed to be a static description of your courses. You can convert it to a collection similar to `_projects/` so that you can have a dedicated page for each course.
-
-Organize your courses by years, topics, or universities, however you like! -->
 
 <div class="projects">
 {% if site.enable_project_categories and page.display_categories %}
@@ -20,7 +16,7 @@ Organize your courses by years, topics, or universities, however you like! -->
   <a id="{{ category }}" href=".#{{ category }}">
     <h2 class="category">{{ category }}</h2>
   </a>
-  {% assign categorized_projects = site.projects | where: "category", category %}
+  {% assign categorized_projects = site.teaching | where: "category", category %}
   {% assign sorted_projects = categorized_projects | sort: "importance" %}
   <!-- Generate cards for each project -->
   {% if page.horizontal %}
@@ -44,7 +40,7 @@ Organize your courses by years, topics, or universities, however you like! -->
 
 <!-- Display projects without categories -->
 
-{% assign sorted_projects = site.projects | sort: "importance" %}
+{% assign sorted_projects = site.teaching | sort: "importance" %}
 
   <!-- Generate cards for each project -->
 
