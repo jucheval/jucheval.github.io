@@ -46,7 +46,7 @@ ninja.data = [{
           },
         },{id: "nav-teaching",
           title: "Teaching",
-          description: "Materials for courses you taught. Replace this text with your description.",
+          description: "Materials for some courses I taught.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/teaching/";
@@ -74,12 +74,7 @@ ninja.data = [{
             },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
           title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
           description: "",
-          section: "News",},{id: "projects-test",
-          title: 'Test',
-          description: "description",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/courses/test/";
-            },},{id: "projects-anr-chamane",
+          section: "News",},{id: "projects-anr-chamane",
           title: 'ANR ChaMaNe',
           description: "Mathematical Challenges in Neurosciences (2020-2025) PI: Delphine Salort",
           section: "Projects",handler: () => {
@@ -89,6 +84,36 @@ ninja.data = [{
           description: "Spatio-temporal point processes for meteorological data (2022-2025) PI: Jean-François Coeurjolly",
           section: "Projects",handler: () => {
               window.location.href = "/projects/research/stepp_meteo/";
+            },},{id: "teaching-modélisation-proba-stat",
+          title: 'Modélisation Proba-Stat',
+          description: "M2 Agreg",
+          section: "Teaching",handler: () => {
+              window.location.href = "/teaching/agreg/";
+            },},{id: "teaching-julia-tutorial",
+          title: 'Julia tutorial',
+          description: "Github repo with introduction and tips for Julia",
+          section: "Teaching",handler: () => {
+              window.location.href = "/teaching/julia_tutorial/";
+            },},{id: "teaching-probabilités-avancées",
+          title: 'Probabilités avancées',
+          description: "M2 - Maths appliquées",
+          section: "Teaching",handler: () => {
+              window.location.href = "/teaching/m2proba/";
+            },},{id: "teaching-tse-events-analysis",
+          title: 'TSE events analysis',
+          description: "MSc in Industrial and Applied Mathematics",
+          section: "Teaching",handler: () => {
+              window.location.href = "/teaching/msiam_tse/";
+            },},{id: "teaching-processus-stochastiques",
+          title: 'Processus stochastiques',
+          description: "M1 Maths générales",
+          section: "Teaching",handler: () => {
+              window.location.href = "/teaching/procstoc/";
+            },},{id: "teaching-statistique",
+          title: 'Statistique',
+          description: "L2 BIO - Plateforme CHAMILO",
+          section: "Teaching",handler: () => {
+              window.location.href = "/teaching/sta301/";
             },},{
         id: 'social-arxiv',
         title: 'arXiv',
