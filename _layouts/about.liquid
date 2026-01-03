@@ -41,7 +41,7 @@ layout: default
     <!-- News -->
     {% if page.announcements and page.announcements.enabled %}
       <h2>
-        <a href="{{ '/news/' | relative_url }}" style="color: inherit">news</a>
+        <a href="{{ '/news/' | relative_url }}" style="color: inherit">News</a>
       </h2>
       {% include news.liquid limit=true %}
     {% endif %}
@@ -49,7 +49,7 @@ layout: default
     <!-- Latest posts -->
     {% if page.latest_posts and page.latest_posts.enabled %}
       <h2>
-        <a href="{{ '/blog/' | relative_url }}" style="color: inherit">latest posts</a>
+        <a href="{{ '/blog/' | relative_url }}" style="color: inherit">Latest posts</a>
       </h2>
       {% include latest_posts.liquid %}
     {% endif %}
@@ -57,10 +57,19 @@ layout: default
     <!-- Selected papers -->
     {% if page.selected_papers %}
       <h2>
-        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">selected publications</a>
+        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">Selected publications</a>
       </h2>
       {% include selected_papers.liquid %}
     {% endif %}
+
+    <!-- Featured links -->
+    <h2>Featured links</h2>
+    <ul>
+      <li><a target="_blank" href="http://images.math.cnrs.fr/">Images des Maths</a></li>
+      <li><a target="_blank" href="TODO">DATA seminar at LJK</a></li>
+      <li><a target="_blank" href="https://github.com/alshedivat/al-folio/tree/main">al-folio website theme</a></li>
+      <li><a href="https://www.allogarage.fr/">Allogarage.fr</a></li>
+    </ul>
 
     <!-- Social -->
     {% if page.social %}
