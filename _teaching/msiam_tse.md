@@ -4,7 +4,7 @@ title: TSE events analysis
 description: >
     MSc in Industrial and Applied Mathematics
 img: assets/img/tse.jpg
-importance: 2
+importance: 1
 category: Université Grenoble Alpes
 related_publications: false
 ---

@@ -4,7 +4,7 @@ title: Modélisation Proba-Stat
 description: >
     M2 Agreg
 img: assets/img/optionA.png
-importance: 1
+importance: 2
 category: Université Grenoble Alpes
 related_publications: false
 ---
