@@ -1,5 +1,5 @@
 metadata:
-  last_updated: '2025-12-29'
+  last_updated: '2026-01-07'
 papers:
   PLia_KwAAAAJ:0EnyYjriUFMC:
     citations: 14
@@ -26,11 +26,11 @@ papers:
     title: "Approximation par champ-moyen: le couplage \xE0 la Sznitman pour les nuls"
     year: '2017'
   PLia_KwAAAAJ:LkGwnXOMwfcC:
-    citations: 0
+    citations: 1
     title: Critical Point Processes Obtained from a Gaussian Random Field with a View Towards Statistics
     year: '2025'
   PLia_KwAAAAJ:Tyk-4Ss8FVUC:
-    citations: 70
+    citations: 71
     title: Mean field limits for nonlinear spatially extended Hawkes processes with exponential memory kernels
     year: '2019'
   PLia_KwAAAAJ:UebtZRa9Y70C:
@@ -50,11 +50,11 @@ papers:
     title: 'Uniform decomposition of probability measures: quantization, clustering and rate of convergence'
     year: '2018'
   PLia_KwAAAAJ:_FxGoFyzp5QC:
-    citations: 0
+    citations: 1
     title: Inferring the dependence graph density of binary graphical models in high dimension
     year: '2024'
   PLia_KwAAAAJ:hqOjcs7Dif8C:
-    citations: 15
+    citations: 16
     title: 'Diffusion approximation of multi-class Hawkes processes: theoretical and numerical analysis'
     year: '2021'
   PLia_KwAAAAJ:u-x6o8ySG0sC:
@@ -62,11 +62,11 @@ papers:
     title: Detection of dependence patterns with delay
     year: '2015'
   PLia_KwAAAAJ:u5HHmVD_uO8C:
-    citations: 103
+    citations: 104
     title: Microscopic approach of a time elapsed neural model
     year: '2015'
   PLia_KwAAAAJ:ufrVoPGSRksC:
-    citations: 2
+    citations: 3
     title: Community detection for binary graphical models in high dimension
     year: '2024'
   PLia_KwAAAAJ:zYLM7Y9cAGgC:
