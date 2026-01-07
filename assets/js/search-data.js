@@ -58,21 +58,58 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/blog/";
           },
-        },{id: "books-the-godfather",
+        },{id: "post-coupling-for-point-processes",
+        
+          title: "Coupling for point processes",
+        
+        description: "introduction to two methods used to represent and couple point processes",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/ppcoupling/";
+          
+        },
+      },{id: "post-makie-introduction-and-snippets",
+        
+          title: "Makie - introduction and snippets",
+        
+        description: "an introduction to Makie.jl and a snippet that generates useful canvas",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/makie/";
+          
+        },
+      },{id: "post-popularization-of-science-youtube-channels",
+        
+          title: "Popularization of science - Youtube channels",
+        
+        description: "a selective list of english and french youtube channels dealing with popularization of science",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/youtube/";
+          
+        },
+      },{id: "books-the-godfather",
           title: 'The Godfather',
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
-            },},{id: "news-a-simple-inline-announcement",
-          title: 'A simple inline announcement.',
+            },},{id: "news-don-t-miss-stochastic-geometry-days-2025-in-grenoble",
+          title: 'Don’t miss Stochastic Geometry Days 2025 in Grenoble!',
           description: "",
-          section: "News",},{id: "news-a-long-announcement-with-details",
-          title: 'A long announcement with details',
+          section: "News",},{id: "news-until-further-notice-i-am-on-sabbatical-leave",
+          title: 'Until further notice, I am on sabbatical leave.',
           description: "",
-          section: "News",handler: () => {
-              window.location.href = "/news/templates/announcement_2/";
-            },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
-          title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
+          section: "News",},{id: "news-my-hdr-manuscript-is-completed-and-available-here",
+          title: 'My HDR manuscript is completed and available here!',
+          description: "",
+          section: "News",},{id: "news-our-paper-has-been-accepted-for-publication-in-annals-of-statistics",
+          title: 'Our paper has been accepted for publication in Annals of Statistics!',
+          description: "",
+          section: "News",},{id: "news-i-defended-my-hdr-the-slides-are-on-this-repo",
+          title: 'I defended my HDR! The slides are on this repo.',
           description: "",
           section: "News",},{id: "projects-anr-chamane",
           title: 'ANR ChaMaNe',
