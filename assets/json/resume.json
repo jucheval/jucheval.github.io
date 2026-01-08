@@ -143,8 +143,7 @@
     {
       "url": "https://agreg.org",
       "area": "Competitive examination for top-level teaching profession",
-      "studyType": "Aggregation in Mathematics",
-      "startDate": "2012"
+      "studyType": "Aggregation in Mathematics"
     }
   ],
   "awards": [
@@ -239,7 +238,7 @@
       "keywords": [
         "Spiking neurons",
         "Neural networks",
-        "neural field equation"
+        "Neural field equation"
       ]
     },
     {
