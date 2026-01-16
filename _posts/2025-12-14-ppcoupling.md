@@ -23,4 +23,4 @@ Time change is a general tool for stochastic processes and so in particular for 
 {% include video.liquid path="https://www.youtube.com/embed/1k4S1GcfB44" class="img-fluid rounded z-depth-1" %}
 </div>
 
-The animations used in both videos are made thanks to [Makie.jl](https://docs.makie.org/stable/).
+The animations used in both videos are made thanks to [Makie.jl](https://docs.makie.org/stable/). Their source code (amongst lots of other stuff) can be found in [the slides I used for my HDR defense](https://github.com/jucheval/HDR/blob/ef36c24a25e02db1cf1fec56e566c6015592eec3/notebooks/slides.jl).
