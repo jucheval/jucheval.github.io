@@ -33,7 +33,7 @@ None
 
 ### Postdoctoral students
 
-- **[Kevin Polisano](https://www.kevinpolisano.com) (2018-2019):** Joint modeling of tweet and follow dynamics, *co-supervised with [E. Gaussier (LIG)](https://ama.liglab.fr/~gaussier/) and [A. Leclercq-Samson (LJK)](https://adeline.e-samson.org)*
+- **[Kevin Polisano](https://polisano.pages.math.cnrs.fr) (2018-2019):** Joint modeling of tweet and follow dynamics, *co-supervised with [E. Gaussier (LIG)](https://ama.liglab.fr/~gaussier/) and [A. Leclercq-Samson (LJK)](https://adeline.e-samson.org)*
 
 ### Former PhD students
 
