@@ -103,11 +103,11 @@
   ],
   "education": [
     {
+      "studyType": "Habilitation",
       "institution": "Université Grenoble Alpes",
       "location": "Grenoble, France",
       "url": "https://www.univ-grenoble-alpes.fr",
       "area": "Applied Mathematics",
-      "studyType": "Habilitation",
       "startDate": "2025-04-01",
       "endDate": "2025-12-12",
       "courses": [
@@ -117,11 +117,11 @@
       ]
     },
     {
+      "studyType": "PhD Thesis",
       "institution": "Université Côté d'Azur",
       "location": "Nice, France",
       "url": "https://theses.hal.science/tel-01415622",
       "area": "Applied Mathematics",
-      "studyType": "PhD Thesis",
       "startDate": "2013-09-01",
       "endDate": "2016-09-06",
       "courses": [
@@ -129,24 +129,27 @@
       ]
     },
     {
+      "studyType": "BSc, MSc and aggregation",
       "institution": "ENS de Lyon",
       "location": "Lyon, France",
       "url": "https://www.ens-lyon.fr",
       "area": "Mathematics",
-      "studyType": "BSc, MSc and aggregation",
-      "startDate": "2013-09-01",
-      "endDate": "2016-09-06",
+      "startDate": "2009-09-01",
+      "endDate": "2013-06-06",
       "courses": [
         "Entrance via competitive examination"
       ]
-    },
-    {
-      "url": "https://agreg.org",
-      "area": "Competitive examination for top-level teaching profession",
-      "studyType": "Aggregation in Mathematics"
     }
   ],
   "awards": [
+    {
+      "title": "Aggregation in Mathematics",
+      "date": "2012",
+      "awarder": "Competitive examination for top-level teaching profession",
+      "location": "France",
+      "url": "https://agreg.org",
+      "summary": "Ranked 36th over 2673"
+    }
     // {
     //   "title": "Nobel Prize in Physics",
     //   "date": "1921-11-01",
