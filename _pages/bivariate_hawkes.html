@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Bivariate Hawkes Process</title>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<style>
+    body {
+        font-family: sans-serif;
+        display: flex;
+        margin: 0;
+        height: 100vh;
+    }
+
+    #controls {
+        width: 300px;
+        padding: 20px;
+        box-sizing: border-box;
+        background: #f7f7f7;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    #controls label {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #plot {
+        flex-grow: 1;
+        height: 100%;
+    }
+
+    #resimulate {
+        background-color: #4CAF50; /* Green background */
+        color: white;               /* White text */
+        border: none;               /* Remove default border */
+        padding: 10px 20px;         /* Vertical and horizontal padding */
+        font-size: 16px;            /* Font size */
+        border-radius: 8px;         /* Rounded corners */
+        cursor: pointer;            /* Pointer on hover */
+        transition: all 0.2s ease; /* Smooth hover effect */
+    }
+    #resimulate:hover {
+    background-color: #45a049; /* Darker green on hover */
+    transform: scale(1.05);    /* Slight zoom on hover */
+    }
+    #resimulate:active {
+    transform: scale(0.95);    /* Slight shrink on click */
+    }
+
+    *, *::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    }
+</style>
+</head>
+<body>
+
+<div id="controls">
+    <p style="font-size:150%;"><b>Parameters</b></p>
+    <p>Baseline intensities</p>
+        <label>μ₁: <span id="mu1val">0.8</span><input type="range" id="mu1" min="0.5" max="1.5" step="0.01" value="0.8"></label>
+        <label>μ₂: <span id="mu2val">1.2</span><input type="range" id="mu2" min="0.5" max="1.5" step="0.01" value="1.2"></label>
+    <p>Exponential decay</p>
+        <label>α: <span id="alphaval">4.0</span><input type="range" id="alpha" min="1.0" max="5.0" step="0.01" value="4.0"></label>
+    <p>Interaction strengths</p>
+        <label>β₁₁: <span id="b11val">0.0</span><input type="range" id="b11" min="-1.0" max="1.0" step="0.01" value="0.0"></label>
+        <label>β₁₂: <span id="b12val">0.0</span><input type="range" id="b12" min="-1.0" max="1.0" step="0.01" value="0.0"></label>
+        <label>β₂₁: <span id="b21val">0.0</span><input type="range" id="b21" min="-1.0" max="1.0" step="0.01" value="0.0"></label>
+        <label>β₂₂: <span id="b22val">0.0</span><input type="range" id="b22" min="-1.0" max="1.0" step="0.01" value="0.0"></label>
+
+    <br>
+    <p style="font-size:150%;"><b>Control panel</b></p>
+        <button id="resimulate">Re-simulate Π¹ and Π²</button>
+        <label>Show Π¹ and Π² <input type="checkbox" id="showPoisson"></label>
+</div>
+
+<div id="plot"></div>
+
+<script>
+// --- Parameters ---
+const dt = 0.1;
+const tmin = 0.0;
+const tmax = 5.0;
+const intensity_bound = 5.0;
+
+// --- Helper functions ---
+function randUniform(a, b) { return a + Math.random() * (b - a); }
+
+function poissonSample(lambda) {
+    let L = Math.exp(-lambda), k = 0, p = 1;
+    do { k++; p *= Math.random(); } while (p > L);
+    return k - 1;
+}
+
+// Simulate a 2D Poisson process
+function simulatePoisson() {
+    const N = poissonSample(2 * intensity_bound * (tmax - tmin));
+    const times = Array.from({length: N}, () => randUniform(tmin, tmax)).sort((a,b)=>a-b);
+    const marks = times.map(() => {
+        const m = Math.random() < 0.5 ? 1 : 2;
+        const u = randUniform(0, intensity_bound);
+        return [m, u];
+    });
+    return {times, marks};
+}
+
+// Thinning algorithm
+function thinning(poisson, mu, alpha, beta) {
+    const {times: times_poisson, marks: marks_poisson} = poisson;
+    let t = tmin, i = 0;
+    let Xi = [0, 0];
+    let lambda = [...mu];
+    let ts = [t], lambdas = [lambda.slice()], spikes = [];
+
+    while (t < tmax) {
+        const tau = (i < times_poisson.length) ? times_poisson[i] - t : Infinity;
+        if (tau > dt) {
+            Xi = Xi.map(x => x * Math.exp(-alpha * dt));
+            lambda = mu.map((m, idx) => Math.max(0, m + Xi[idx]));
+            t += dt;
+            ts.push(t);
+            lambdas.push(lambda.slice());
+        } else {
+            Xi = Xi.map(x => x * Math.exp(-alpha * tau));
+            lambda = mu.map((m, idx) => Math.max(0, m + Xi[idx]));
+            t += tau;
+            ts.push(t);
+            lambdas.push(lambda.slice());
+
+            const [j, u] = marks_poisson[i];
+            const m = j - 1;
+            if (u < lambda[m]) {
+                spikes.push([t, j]);
+                Xi = Xi.map((x, idx) => x + beta[idx][m]);
+                lambda = mu.map((m, idx) => Math.max(0, m + Xi[idx]));
+                ts.push(t);
+                lambdas.push(lambda.slice());
+            }
+            i++;
+        }
+    }
+    return {ts, lambdas, spikes};
+}
+
+// --- Initial Poisson ---
+let poisson = simulatePoisson();
+
+// --- Poisson points ---
+const poisson1X = poisson.times.filter((_, i) => poisson.marks[i][0] === 1);
+const poisson1Y = poisson.marks.filter(m => m[0] === 1).map(m => m[1]);
+
+const poisson2X = poisson.times.filter((_, i) => poisson.marks[i][0] === 2);
+const poisson2Y = poisson.marks.filter(m => m[0] === 2).map(m => m[1]);
+
+// --- Plot update ---
+function updatePlot() {
+    const mu = [parseFloat(mu1.value), parseFloat(mu2.value)];
+    const alpha = parseFloat(alphaSlider.value);
+    const beta = [
+        [parseFloat(b11.value), parseFloat(b12.value)],
+        [parseFloat(b21.value), parseFloat(b22.value)]
+    ];
+
+    const {ts, lambdas, spikes} = thinning(poisson, mu, alpha, beta);
+
+    const spikes1 = spikes.filter(s=>s[1]===1).map(s=>s[0]);
+    const spikes2 = spikes.filter(s=>s[1]===2).map(s=>s[0]);
+
+    const trace1 = {x: ts, y: lambdas.map(l=>l[0]),
+        mode:'lines', name:'λ¹', line:{color:'darkblue'}};
+    const trace2 = {x: ts, y: lambdas.map(l=>l[1]),
+        mode:'lines', name:'λ²', line:{color:'orange'}};
+    const hline1 = {x:[tmin,tmax], y:[mu[0],mu[0]],
+        mode:'lines', line:{dash:'dot', color:'darkblue'}, name:'μ₁'};
+    const hline2 = {x:[tmin,tmax], y:[mu[1],mu[1]],
+        mode:'lines', line:{dash:'dot', color:'orange'}, name:'μ₂'};
+    const spikeTrace1 = {x: spikes1, y: spikes1.map(()=>0),
+        mode:'markers', marker:{color:'darkblue', size:10}, name:'N¹'};
+    const spikeTrace2 = {x: spikes2, y: spikes2.map(()=>0),
+        mode:'markers', marker:{color:'orange', size:10}, name:'N²'};
+
+    // --- Include Poisson traces only if checkbox is checked ---
+    const showPoisson = document.getElementById('showPoisson').checked;
+
+    let data = [trace1, trace2, hline1, hline2, spikeTrace1, spikeTrace2];
+    if(showPoisson){
+        const poisson1X = poisson.times.filter((_, i) => poisson.marks[i][0] === 1);
+        const poisson1Y = poisson.marks.filter(m => m[0] === 1).map(m => m[1]);
+        const poisson2X = poisson.times.filter((_, i) => poisson.marks[i][0] === 2);
+        const poisson2Y = poisson.marks.filter(m => m[0] === 2).map(m => m[1]);
+
+        const poissonTrace1 = {
+            x: poisson1X,
+            y: poisson1Y,
+            mode: 'markers',
+            marker: { color: 'darkblue', size: 8, symbol: 'x', opacity: 0.6 },
+            name: 'Π¹'
+        };
+        const poissonTrace2 = {
+            x: poisson2X,
+            y: poisson2Y,
+            mode: 'markers',
+            marker: { color: 'orange', size: 8, symbol: 'x', opacity: 0.6 },
+            name: 'Π²'
+        };
+
+        data.push(poissonTrace1, poissonTrace2);
+    }
+    
+
+    Plotly.react('plot', data, 
+        {xaxis:{title:'t', range: [0, tmax]}, yaxis:{title:'λ', range: [0, 2]}, title:'Bivariate Hawkes Process'});
+}
+
+// --- Sliders ---
+const mu1 = document.getElementById('mu1');
+const mu2 = document.getElementById('mu2');
+const alphaSlider = document.getElementById('alpha');
+const b11 = document.getElementById('b11');
+const b12 = document.getElementById('b12');
+const b21 = document.getElementById('b21');
+const b22 = document.getElementById('b22');
+
+const sliders = [mu1, mu2, alphaSlider, b11, b12, b21, b22];
+const labels = ['mu1val','mu2val','alphaval','b11val','b12val','b21val','b22val'];
+
+sliders.forEach((s,i)=>{
+    s.addEventListener('input', ()=>{
+        document.getElementById(labels[i]).innerText = s.value;
+        updatePlot();
+    });
+});
+
+// Initial plot
+updatePlot();
+
+document.getElementById('resimulate').addEventListener('click', () => {
+    poisson = simulatePoisson(); // generate a new Poisson process
+    updatePlot();               // redraw the plot with the new events
+});
+
+document.getElementById('showPoisson').addEventListener('change', updatePlot);
+</script>
+</body>
+</html>
