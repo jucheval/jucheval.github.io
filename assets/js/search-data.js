@@ -58,7 +58,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/blog/";
           },
-        },{id: "post-coupling-for-point-processes",
+        },{id: "post-hawkes-process-animation",
+        
+          title: "Hawkes process - animation",
+        
+        description: "an introduction to Hawkes processes with a JS animation",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/hawkes/";
+          
+        },
+      },{id: "post-coupling-for-point-processes",
         
           title: "Coupling for point processes",
         
