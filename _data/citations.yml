@@ -1,5 +1,5 @@
 metadata:
-  last_updated: '2026-03-02'
+  last_updated: '2026-03-13'
 papers:
   PLia_KwAAAAJ:0EnyYjriUFMC:
     citations: 14
@@ -18,7 +18,7 @@ papers:
     title: Natural selection and the advantage of recombination
     year: '2020'
   PLia_KwAAAAJ:9yKSN-GCB0IC:
-    citations: 135
+    citations: 136
     title: Mean-field limit of generalized Hawkes processes
     year: '2017'
   PLia_KwAAAAJ:IjCSPb-OGe4C:
@@ -62,7 +62,7 @@ papers:
     title: Detection of dependence patterns with delay
     year: '2015'
   PLia_KwAAAAJ:u5HHmVD_uO8C:
-    citations: 104
+    citations: 105
     title: Microscopic approach of a time elapsed neural model
     year: '2015'
   PLia_KwAAAAJ:ufrVoPGSRksC:
@@ -70,6 +70,6 @@ papers:
     title: Community detection for binary graphical models in high dimension
     year: '2024'
   PLia_KwAAAAJ:zYLM7Y9cAGgC:
-    citations: 5
+    citations: 6
     title: "Mod\xE9lisation de grands r\xE9seaux de neurones par processus de Hawkes"
     year: '2016'
