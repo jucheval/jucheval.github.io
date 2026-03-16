@@ -1,5 +1,5 @@
 metadata:
-  last_updated: '2026-03-13'
+  last_updated: '2026-03-16'
 papers:
   PLia_KwAAAAJ:0EnyYjriUFMC:
     citations: 14
@@ -42,7 +42,7 @@ papers:
     title: Stimulus sensitivity of a spiking neural network model
     year: '2018'
   PLia_KwAAAAJ:WF5omc3nYNoC:
-    citations: 14
+    citations: 15
     title: Fluctuations for spatially extended Hawkes processes
     year: '2020'
   PLia_KwAAAAJ:YsMSGLbcyi4C:
