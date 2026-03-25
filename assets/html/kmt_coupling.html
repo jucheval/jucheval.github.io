@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KMT Helper Animation</title>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<style>
+  body {
+    font-family: sans-serif;
+    display: flex;
+    margin: 0;
+    height: 100vh;
+  }
+
+  #controls {
+    width: 300px;
+    padding: 20px;
+    box-sizing: border-box;
+    background: #f7f7f7;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    overflow-y: auto;
+  }
+
+  #controls label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+
+  #plot {
+    flex-grow: 1;
+    height: 100%;
+  }
+
+  #resimulate,
+  #next_step {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  #resimulate:hover,
+  #next_step:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+  }
+
+  #resimulate:active,
+  #next_step:active {
+    transform: scale(0.95);
+  }
+
+  #legend {
+    font-size: 0.95rem;
+    color: #2f3d4d;
+    line-height: 1.4;
+  }
+
+  #nSelect {
+    min-width: 110px;
+    padding: 4px 6px;
+  }
+
+  #dyadic_tableWrap {
+    border: 1px solid #d9d9d9;
+    border-radius: 8px;
+    background: #ffffff;
+    overflow: hidden;
+  }
+
+  #dyadic_tableHead {
+    padding: 8px 10px;
+    font-size: 0.9rem;
+    color: #2f3d4d;
+    border-bottom: 1px solid #e6e6e6;
+  }
+
+  #dyadic_tableScroll {
+    max-height: 220px;
+    overflow: auto;
+  }
+
+  #dyadic_table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.86rem;
+  }
+
+  #dyadic_table th,
+  #dyadic_table td {
+    border-bottom: 1px solid #f0f0f0;
+    padding: 6px 8px;
+    text-align: right;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+
+  #dyadic_table th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: #fafafa;
+    color: #334155;
+    font-weight: 600;
+  }
+
+  *, *::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+</style>
+</head>
+<body>
+<div id="controls">
+  <p style="font-size:150%;"><b>Parameter</b></p>
+  <label>n:
+    <select id="nSelect">
+      <option value="8">8</option>
+      <option value="16" selected>16</option>
+      <option value="32">32</option>
+      <option value="64">64</option>
+      <option value="128">128</option>
+      <option value="256">256</option>
+    </select>
+  </label>
+
+  <p style="font-size:150%;"><b>Control panel</b></p>
+  <button id="next_step">Next step</button>
+
+  <p id="legend">
+    Xₙ: rescaled random walk<br>
+    B: Brownian motion
+  </p>
+
+  <button id="resimulate">Generate new seed</button>
+
+  <div id="dyadic_tableWrap">
+    <div id="dyadic_tableHead"><strong>Current dyadic level:</strong> <span id="dyadicLevel">-</span></div>
+    <div id="dyadic_tableScroll">
+      <table id="dyadic_table">
+        <thead>
+          <tr>
+            <th><span id="colHeaderU" aria-label="tilde U">U&#x0303;</span></th>
+            <th>Z</th>
+            <th><span id="colHeaderV" aria-label="tilde V">V&#x0303;</span></th>
+          </tr>
+        </thead>
+        <tbody id="dyadic_tableBody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div id="plot"></div>
+
+<script type="module">
+import {
+  normal_random,
+  normal_cdf,
+  simulateB,
+  computeVjk,
+  computeXfromB,
+} from "../js/kmt_helper.js";
+
+const nSelect = document.getElementById("nSelect");
+const next_step_button = document.getElementById("next_step");
+const resimulate_button = document.getElementById("resimulate");
+const plotDiv = document.getElementById("plot");
+const dyadicLevelEl = document.getElementById("dyadicLevel");
+const dyadic_tableBodyEl = document.getElementById("dyadic_tableBody");
+const colHeaderUEl = document.getElementById("colHeaderU");
+const colHeaderVEl = document.getElementById("colHeaderV");
+
+let sim = null;
+let currentStep = 0;
+let fixedYRange = null;
+const FINAL_DT_DENOM = 1024; // Sets the finest Brownian time steps to 1/1024
+
+function log2int(n) {
+  return Math.round(Math.log2(n));
+}
+
+function getStepPhase(step) {
+  // compute some helper indices from the current step, i.e. number of next_step_button clicks
+  if (step <= 0) {
+    return { revealedLevel: 0, redGuideLevel: 0, grayUpToLevel: 0 };
+  }
+
+  if (step % 2 === 1) {
+    // odd step: reveal new red guide lines; previous levels turn gray
+    const j = (step + 1) / 2;
+    return { revealedLevel: j - 1, redGuideLevel: j, grayUpToLevel: j - 1 };
+  }
+
+  // even step: quantile coupling; current guide level joins the gray set
+  const j = step / 2;
+  return { revealedLevel: j, redGuideLevel: 0, grayUpToLevel: j };
+}
+
+function buildCoarseBrownian(simObj, revealedLevel) {
+  // gives all the interpolation times and values for the path in simObj at the current step (through revealedLevel)
+  if (revealedLevel <= 0) {
+    return { t: [], y: [] };
+  }
+
+  const sorted = [0, ...buildGrayGuideIndices(simObj, revealedLevel), simObj.n];
+  const t = sorted.map((k) => k / simObj.n);
+  const y = sorted.map((k) => simObj.bScaledFull[k]);
+
+  return { t, y };
+}
+
+function buildGuideIndices(simObj, guideLevel) {
+  // gives the indices of the red guide lines at the current step (through guideLevel)
+  // For instance, n=8 yields:
+  // level 1 -> {1,2,4}, level 2 -> {3,6}, level 3 -> {5,7}.
+  if (guideLevel <= 0) {
+    return [];
+  }
+
+  const K = simObj.m;
+  const kStart = guideLevel === 1 ? 0 : 2 ** (guideLevel - 2);
+  const kEnd = (2 ** (guideLevel - 1)) - 1;
+  const out = [];
+
+  for (let q = 1; q <= K; q += 1) {
+    const maxK = (2 ** (K - q)) - 1;
+    const lo = Math.max(0, kStart);
+    const hi = Math.min(maxK, kEnd);
+    if (lo > hi) {
+      continue;
+    }
+
+    const factor = 2 ** (q - 1);
+    for (let k = lo; k <= hi; k += 1) {
+      out.push((2 * k + 1) * factor);
+    }
+  }
+
+  return out.sort((a, b) => a - b);
+}
+
+function buildGrayGuideIndices(simObj, upToLevel) {
+  // gives the indices of the guide lines up to the current step (through upToLevel)
+  const selected = new Set();
+  for (let level = 1; level <= upToLevel; level += 1) {
+    const indices = buildGuideIndices(simObj, level);
+    for (let i = 0; i < indices.length; i += 1) {
+      selected.add(indices[i]);
+    }
+  }
+
+  return Array.from(selected).sort((a, b) => a - b);
+}
+
+function buildGuideTimes(simObj, guideLevel) {
+  // transforms red guide indices into times
+  return buildGuideIndices(simObj, guideLevel).map((k) => k / simObj.n);
+}
+
+function buildGrayGuideTimes(simObj, upToLevel) {
+  // transforms gray guide indices into times
+  return buildGrayGuideIndices(simObj, upToLevel).map((k) => k / simObj.n);
+}
+
+function fillBridgeSegment(values, leftIdx, rightIdx, dtDenom) {
+  // fills the interpolating line between leftIdx and rightIdx with a Brownian bridge
+  if (rightIdx - leftIdx <= 1) {
+    return;
+  }
+
+  const midIdx = Math.floor((leftIdx + rightIdx) / 2);
+  if (values[midIdx] === null) {
+    const y0 = values[leftIdx];
+    const y1 = values[rightIdx];
+    const mean = 0.5 * (y0 + y1);
+    const varMid = ((midIdx - leftIdx) * (rightIdx - midIdx)) / (dtDenom * (rightIdx - leftIdx));
+    values[midIdx] = mean + Math.sqrt(Math.max(0, varMid)) * normal_random();
+  }
+
+  fillBridgeSegment(values, leftIdx, midIdx, dtDenom);
+  fillBridgeSegment(values, midIdx, rightIdx, dtDenom);
+}
+
+function buildBridgeRefinement(simObj) {
+  // Fills the whole Brownian path with Brownian bridges between revealed points
+  if (FINAL_DT_DENOM % simObj.n !== 0) {
+    return null;
+  }
+
+  const span = FINAL_DT_DENOM / simObj.n;
+  const values = new Array(FINAL_DT_DENOM + 1).fill(null);
+  const t = new Array(FINAL_DT_DENOM + 1);
+  for (let i = 0; i <= FINAL_DT_DENOM; i += 1) {
+    t[i] = i / FINAL_DT_DENOM;
+  }
+
+  for (let k = 0; k <= simObj.n; k += 1) {
+    values[k * span] = simObj.bScaledFull[k];
+  }
+
+  for (let k = 0; k < simObj.n; k += 1) {
+    const leftIdx = k * span;
+    const rightIdx = (k + 1) * span;
+    fillBridgeSegment(values, leftIdx, rightIdx, FINAL_DT_DENOM);
+  }
+
+  return { t, y: values };
+}
+
+function getTableDyadicLevel(simObj, step) {
+  // gives the dyadic level q used in the table
+  const finalCouplingStep = 2 * simObj.m;
+  if (step <= 0) {
+    return 0;
+  }
+  if (step > finalCouplingStep) {
+    return simObj.m;
+  }
+
+  const phase = getStepPhase(step);
+  if (phase.redGuideLevel > 0) {
+    return Math.min(simObj.m, phase.redGuideLevel);
+  }
+  return Math.max(0, Math.min(simObj.m, phase.grayUpToLevel));
+}
+
+
+function countTrailingZeros(value) {
+  // compute the number of factors of 2 in value
+  let x = value;
+  let c = 0;
+  while ((x & 1) === 0) {
+    c += 1;
+    x >>= 1;
+  }
+  return c;
+}
+
+function buildFirstStepRows(simObj) {
+  // Values in the table for level = 1 are the increments between the anchors [0, red guides..., n].
+  const guides = buildGuideIndices(simObj, 1);
+  const anchors = [0, ...guides, simObj.n];
+  const rows = [];
+
+  for (let i = 0; i < anchors.length - 1; i += 1) {
+    const a = anchors[i];
+    const b = anchors[i + 1];
+    const walkIncrement = simObj.sRaw[b] - simObj.sRaw[a];
+    const brownianIncrement = simObj.bRaw[b] - simObj.bRaw[a];
+    const span = b - a;
+    const Z = normal_cdf(brownianIncrement / Math.sqrt(span));
+
+    rows.push({
+      col1: walkIncrement.toFixed(0),
+      col2: brownianIncrement.toFixed(2),
+      col3: Z.toFixed(3),
+    });
+  }
+
+  return rows;
+}
+
+function buildLaterStepRows(simObj, level) {
+  // Later levels show node-wise contrasts (left increment minus right increment) matched to each red guide index.
+  const guideIndices = buildGuideIndices(simObj, level);
+  const rows = [];
+
+  for (let i = 0; i < guideIndices.length; i += 1) {
+    const g = guideIndices[i];
+    // g is of the form (2k+1)*2^(q-1) for some k, q.
+    const q = countTrailingZeros(g) + 1;
+    const factor = 2 ** (q - 1);
+    const k = Math.floor((g / factor - 1) / 2);
+    const left = 2 * k;
+    const right = left + 1;
+
+    const uRow = simObj.Ujk[q - 1] || [];
+    const vRow = simObj.Vjk[q - 1] || [];
+    if (right >= uRow.length || right >= vRow.length) {
+      continue;
+    }
+
+    const tildeU = uRow[left] - uRow[right];
+    const tildeV = vRow[left] - vRow[right];
+    const Z = normal_cdf(tildeV / Math.sqrt(2 ** q));
+
+    rows.push({
+      col1: tildeU.toFixed(0),
+      col2: tildeV.toFixed(2),
+      col3: Z.toFixed(3),
+    });
+  }
+
+  return rows;
+}
+
+function refreshDyadicTable() {
+  const q = getTableDyadicLevel(sim, currentStep);
+  dyadicLevelEl.textContent = q > 0 ? String(q) : "-";
+
+  const rowData = q === 1 ? buildFirstStepRows(sim) : buildLaterStepRows(sim, q);
+  dyadic_tableBodyEl.innerHTML = rowData.map((row) => (
+    "<tr>" +
+    "<td>" + row.col1 + "</td>" +
+    "<td>" + row.col3 + "</td>" +
+    "<td>" + row.col2 + "</td>" +
+    "</tr>"
+  )).join("");
+}
+
+function redraw() {
+  // update the plot
+  if (!sim) {
+    return;
+  }
+
+  const finalCouplingStep = 2 * sim.m;
+  const isRefined = currentStep > finalCouplingStep && sim.refinedBridge !== null;
+  const phase = getStepPhase(currentStep);
+  const brownianLayer = isRefined
+    ? sim.refinedBridge
+    : buildCoarseBrownian(sim, phase.revealedLevel);
+  const redTimes = (!isRefined && phase.redGuideLevel > 0) ? buildGuideTimes(sim, phase.redGuideLevel) : [];
+  const grayTimes = isRefined
+    ? buildGrayGuideTimes(sim, sim.m)
+    : buildGrayGuideTimes(sim, phase.grayUpToLevel);
+  const traces = [
+    {
+      x: sim.tGrid,
+      y: sim.xPath,
+      mode: "lines",
+      name: "Xₙ",
+      line: { color: "darkblue", width: 2 },
+      showlegend: true,
+    },
+    {
+      x: brownianLayer.t.length > 1 ? brownianLayer.t : [0],
+      y: brownianLayer.t.length > 1 ? brownianLayer.y : [0],
+      mode: "lines",
+      name: "B",
+      line: { color: "orange", width: 2 },
+      showlegend: true,
+      visible: brownianLayer.t.length > 1 ? true : "legendonly",
+    },
+  ];
+
+  const shapes = [
+    ...grayTimes.map((time) => ({
+      type: "line",
+      x0: time,
+      x1: time,
+      y0: fixedYRange[0],
+      y1: fixedYRange[1],
+      line: { color: "rgba(150, 150, 150, 0.7)", width: 1, dash: "dot" },
+    })),
+    ...redTimes.map((time) => ({
+      type: "line",
+      x0: time,
+      x1: time,
+      y0: fixedYRange[0],
+      y1: fixedYRange[1],
+      line: { color: "rgba(200, 0, 0, 0.8)", width: 2, dash: "dot" },
+    })),
+  ];
+
+  const layout = {
+    title: {
+      text: "KMT coupling",
+      x: 0.5,
+      xanchor: "center",
+      font: { size: 20 },
+    },
+    margin: { l: 55, r: 20, t: 60, b: 40 },
+    showlegend: true,
+    xaxis: {
+      title: "t",
+      range: [0, 1],
+      showgrid: false,
+      zeroline: false,
+      dtick: 0.125,
+      tick0: 0,
+    },
+    yaxis: {
+      title: "value",
+      range: fixedYRange,
+      showgrid: true,
+      zeroline: false,
+    },
+    legend: {
+      orientation: "v",
+      x: 1.02,
+      xanchor: "left",
+      y: 1,
+      yanchor: "top",
+      bgcolor: "rgba(255,255,255,0.7)",
+    },
+    paper_bgcolor: "#ffffff",
+    plot_bgcolor: "#ffffff",
+    shapes,
+  };
+
+  Plotly.react(plotDiv, traces, layout, { displayModeBar: false, responsive: true });
+}
+
+function updateButtonLabel() {
+  // update the next_step_button
+  if (!sim) {
+    next_step_button.textContent = "Show interpolation times";
+    return;
+  }
+
+  const finalCouplingStep = 2 * sim.m;
+  if (currentStep > finalCouplingStep) {
+    next_step_button.textContent = "Done!";
+    return;
+  }
+
+  if (currentStep === finalCouplingStep) {
+    next_step_button.textContent = "Brownian filling";
+    return;
+  }
+
+  if (currentStep % 2 === 1) {
+    next_step_button.textContent = "Quantile coupling";
+  } else {
+    next_step_button.textContent = "Show interpolation times";
+  }
+}
+
+function updateStatus() {
+  // update whole animation
+  updateButtonLabel();
+  refreshDyadicTable();
+  redraw();
+}
+
+function rebuildSimulation() {
+  // generate new simulation and reset to step 0
+  const n = Number.parseInt(nSelect.value, 10);
+  const m = log2int(n);
+  const brownian = simulateB({ tEnd: n, dt: 1, y0: 0 });
+  const Vjk = computeVjk(brownian.y).Vjk;
+  const rademacher = computeXfromB(brownian);
+
+  const sPath = new Array(n + 1);
+  const tGrid = new Array(n + 1);
+  sPath[0] = 0;
+  tGrid[0] = 0;
+
+  for (let k = 1; k <= n; k += 1) {
+    sPath[k] = sPath[k - 1] + rademacher.X[k - 1];
+    tGrid[k] = k / n;
+  }
+
+  const xPath = sPath.map((value) => value / Math.sqrt(n));
+  const fullBrownian = brownian.y.map((value) => value / Math.sqrt(n));
+  const yAll = xPath.concat(fullBrownian);
+  let yMin = Math.min(...yAll);
+  let yMax = Math.max(...yAll);
+  if (yMin === yMax) {
+    yMin -= 1;
+    yMax += 1;
+  }
+  const pad = 0.18 * (yMax - yMin);
+  fixedYRange = [yMin - pad, yMax + pad];
+
+  sim = {
+    n,
+    m,
+    tGrid,
+    xPath,
+    sRaw: sPath,
+    bRaw: brownian.y,
+    bScaledFull: fullBrownian,
+    Vjk,
+    Ujk: rademacher.Ujk,
+    refinedBridge: null,
+  };
+
+  currentStep = 0;
+  updateStatus();
+}
+
+function next_step() {
+  // function called when next_step_button is clicked
+  // increment step and update animation
+  if (!sim) {
+    return;
+  }
+
+  const finalCouplingStep = 2 * sim.m;
+  if (currentStep < finalCouplingStep) {
+    currentStep += 1;
+  } else if (currentStep === finalCouplingStep) {
+    sim.refinedBridge = buildBridgeRefinement(sim);
+    currentStep += 1;
+  }
+
+  updateStatus();
+}
+
+
+nSelect.addEventListener("change", rebuildSimulation);
+next_step_button.addEventListener("click", next_step);
+resimulate_button.addEventListener("click", rebuildSimulation);
+
+rebuildSimulation();
+</script>
+</body>
+</html>
