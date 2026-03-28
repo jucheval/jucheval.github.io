@@ -58,7 +58,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/blog/";
           },
-        },{id: "post-hawkes-process-animation",
+        },{id: "post-kmt-coupling-animation",
+        
+          title: "KMT coupling - animation",
+        
+        description: "mathematical details on the construction of KMT coupling with a JS animation",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/kmt-coupling/";
+          
+        },
+      },{id: "post-hawkes-process-animation",
         
           title: "Hawkes process - animation",
         
