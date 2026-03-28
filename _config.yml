@@ -92,7 +92,7 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # -----------------------------------------------------------------------------
 
 blog_name: Wandering thoughts # blog_name will be displayed in your blog page
-blog_description: 
+blog_description: Some thoughts on probability, statistics and Julia programming language with a peculiar focus on point processes and coupling methods.
 permalink: /blog/:year/:title/
 lsi: false # produce an index for related posts
 
