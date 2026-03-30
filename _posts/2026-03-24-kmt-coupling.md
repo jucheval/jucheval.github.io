@@ -58,7 +58,7 @@ The true trajectory is the blue one, its mean-field approximation is the black c
 
 KMT coupling gives a strong diffusion approximation result. It builds $X_n$ and $B$ on one probability space with a sharp error control on the full path. Furthermore, the construction is explicit and can be used to answer the first question of this post: *how to visualize a diffusion approximation?*
 
-The answer is to plot coupled trajectories of $X_n$ and $B$. That is the purpose of [this animation](/assets/html/kmt_coupling.html).
+The answer is to plot coupled trajectories of $X_n$ and $B$. That is the purpose of [this animation](/assets/html/kmt_coupling.html) *(I used GitHub Copilot to convert a script I wrote in Julia into JavaScript)*.
 
 Notice that there is also [a version](https://en.wikipedia.org/wiki/Komlós–Major–Tusnády_approximation) which gives a strong approximation of the empirical process by a Brownian bridge, which is the key to many results in statistics.
 
