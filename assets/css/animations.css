@@ -1,0 +1,216 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    background: #f8fafc;
+    color: #1e293b;
+}
+
+/* ── Left panel ─────────────────────────────────── */
+#controls {
+    width: 300px;
+    flex-shrink: 0;
+    padding: 20px 18px;
+    background: #ffffff;
+    border-right: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    overflow-y: auto;
+}
+
+/* ── Right panel ─────────────────────────────────── */
+#plot {
+    flex: 1;
+    min-width: 0;
+}
+
+/* ── Typography ──────────────────────────────────── */
+h1.app-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.app-subtitle {
+    font-size: 0.8rem;
+    color: #64748b;
+    margin-top: 3px;
+}
+
+.section-title {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #727c8a;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 6px;
+}
+
+.subsection-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #475569;
+    margin-top: 4px;
+    margin-bottom: 6px;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #e2e8f0;
+}
+
+/* ── Sliders ─────────────────────────────────────── */
+.param-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.param-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.param-value {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #2563eb;
+    min-width: 44px;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+input[type=range] {
+    width: 100%;
+    accent-color: #2563eb;
+    cursor: pointer;
+}
+
+/* ── Description box ─────────────────────────────── */
+.desc {
+    font-size: 0.8rem;
+    color: #475569;
+    background: #f8fafc;
+    border-left: 3px solid #2563eb;
+    padding: 8px 10px;
+    border-radius: 0 6px 6px 0;
+    line-height: 1.55;
+    margin-top: 8px;
+}
+
+/* ── Buttons ─────────────────────────────────────── */
+.btn {
+    width: 100%;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.btn-primary {
+    background: #2563eb;
+    color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background: #1d4ed8;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+    transform: translateY(-1px);
+}
+
+.btn-primary:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.btn-primary:disabled {
+    background: #cbd5e1;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.btn-secondary {
+    background: #f1f5f9;
+    color: #475569;
+    border: 1.5px solid #e2e8f0;
+}
+
+.btn-secondary:hover {
+    background: #e2e8f0;
+}
+
+/* ── Toggle switch ─────────────────────────────────────── */
+/* From Uiverse.io by namecho */
+.switch {
+    --button-width: 3em;
+    --button-height: 1.5em;
+    --toggle-diameter: 1.2em;
+    --button-toggle-offset: calc((var(--button-height) - var(--toggle-diameter)) / 2);
+    --toggle-shadow-offset: 10px;
+    --toggle-wider: 3em;
+    --color-grey: #cccccc;
+    --color-green: #2563eb;
+}
+
+.slider {
+    display: inline-block;
+    width: var(--button-width);
+    height: var(--button-height);
+    background-color: var(--color-grey);
+    border-radius: calc(var(--button-height) / 2);
+    position: relative;
+    transition: 0.3s all ease-in-out;
+}
+
+.slider::after {
+    content: "";
+    display: inline-block;
+    width: var(--toggle-diameter);
+    height: var(--toggle-diameter);
+    background-color: #fff;
+    border-radius: calc(var(--toggle-diameter) / 2);
+    position: absolute;
+    top: var(--button-toggle-offset);
+    transform: translateX(var(--button-toggle-offset));
+    box-shadow: var(--toggle-shadow-offset) 0 calc(var(--toggle-shadow-offset) * 4) rgba(0, 0, 0, 0.1);
+    transition: 0.3s all ease-in-out;
+}
+
+.switch input[type="checkbox"]:checked+.slider {
+    background-color: var(--color-green);
+}
+
+.switch input[type="checkbox"]:checked+.slider::after {
+    transform: translateX(calc(var(--button-width) - var(--toggle-diameter) - var(--button-toggle-offset)));
+    box-shadow: calc(var(--toggle-shadow-offset) * -1) 0 calc(var(--toggle-shadow-offset) * 4) rgba(0, 0, 0, 0.1);
+}
+
+.switch input[type="checkbox"] {
+    display: none;
+}
+
+.switch input[type="checkbox"]:active+.slider::after {
+    width: var(--toggle-wider);
+}
+
+.switch input[type="checkbox"]:checked:active+.slider::after {
+    transform: translateX(calc(var(--button-width) - var(--toggle-wider) - var(--button-toggle-offset)));
+}
