@@ -41,7 +41,7 @@
 
     <div>
       <h1 class="app-title">⚡ Bivariate Hawkes Process</h1>
-      <p class="app-subtitle">Explore the model as parameters vary.</p>
+      <p class="app-subtitle">Explore the model as parameters vary!</p>
     </div>
 
     <hr>
@@ -221,27 +221,27 @@
 
       const trace1 = {
         x: ts, y: lambdas.map(l => l[0]),
-        mode: 'lines', name: 'λ¹', line: { color: '#1e40af' },
+        mode: 'lines', name: 'λ¹', line: { color: 'darkblue' },
       };
       const trace2 = {
         x: ts, y: lambdas.map(l => l[1]),
-        mode: 'lines', name: 'λ²', line: { color: '#d97706' },
+        mode: 'lines', name: 'λ²', line: { color: 'orange' },
       };
       const hline1 = {
         x: [tmin, tmax], y: [mu[0], mu[0]],
-        mode: 'lines', line: { dash: 'dot', color: '#1e40af' }, name: 'μ₁',
+        mode: 'lines', line: { dash: 'dot', color: 'darkblue' }, name: 'μ₁',
       };
       const hline2 = {
         x: [tmin, tmax], y: [mu[1], mu[1]],
-        mode: 'lines', line: { dash: 'dot', color: '#d97706' }, name: 'μ₂',
+        mode: 'lines', line: { dash: 'dot', color: 'orange' }, name: 'μ₂',
       };
       const spikeTrace1 = {
         x: spikes1, y: spikes1.map(() => 0),
-        mode: 'markers', marker: { color: '#1e40af', size: 10 }, name: 'N¹',
+        mode: 'markers', marker: { color: 'darkblue', size: 10 }, name: 'N¹',
       };
       const spikeTrace2 = {
         x: spikes2, y: spikes2.map(() => 0),
-        mode: 'markers', marker: { color: '#d97706', size: 10 }, name: 'N²',
+        mode: 'markers', marker: { color: 'orange', size: 10 }, name: 'N²',
       };
 
       let data = [trace1, trace2, hline1, hline2, spikeTrace1, spikeTrace2];
@@ -253,8 +253,8 @@
         const p2X = poisson.times.filter((_, i) => poisson.marks[i][0] === 2);
         const p2Y = poisson.marks.filter(m => m[0] === 2).map(m => m[1]);
         data.push(
-          { x: p1X, y: p1Y, mode: 'markers', marker: { color: '#1e40af', size: 8, symbol: 'x', opacity: 0.6 }, name: 'Π¹' },
-          { x: p2X, y: p2Y, mode: 'markers', marker: { color: '#d97706', size: 8, symbol: 'x', opacity: 0.6 }, name: 'Π²' },
+          { x: p1X, y: p1Y, mode: 'markers', marker: { color: 'darkblue', size: 8, symbol: 'x', opacity: 0.6 }, name: 'Π¹' },
+          { x: p2X, y: p2Y, mode: 'markers', marker: { color: 'orange', size: 8, symbol: 'x', opacity: 0.6 }, name: 'Π²' },
         );
       }
 
