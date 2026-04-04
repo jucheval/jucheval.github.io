@@ -28,6 +28,22 @@ body {
     overflow-y: auto;
 }
 
+.panel-footnote {
+    margin-top: auto;
+    position: sticky;
+    bottom: 0;
+    padding-top: 10px;
+    font-size: 0.78rem;
+    color: #727c8a;
+    line-height: 1.35;
+}
+
+.panel-footnote a {
+    color: #2563eb;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
 /* ── Right panel ─────────────────────────────────── */
 #plot {
     flex: 1;
