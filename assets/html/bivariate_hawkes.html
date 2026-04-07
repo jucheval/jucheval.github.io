@@ -5,9 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bivariate Hawkes Process</title>
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="https://cdn.plot.ly/plotly-3.5.0.min.js"></script>
   <link rel="stylesheet" href="../css/animations.css">
   <style>
+    /*! purgecss start ignore */
     .switch-frame {
       display: flex;
       align-items: center;
@@ -31,6 +32,28 @@
     .switch-label {
       margin-right: 10px;
     }
+
+    .interaction-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 14px;
+    }
+
+    .interaction-control {
+      min-width: 0;
+    }
+
+    .interaction-control input[type="range"] {
+      width: 100%;
+    }
+
+    @media (max-width: 900px) {
+      .interaction-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /*! purgecss end ignore */
   </style>
 </head>
 
@@ -57,8 +80,6 @@
       </div>
       <input type="range" id="mu1" min="0.5" max="1.5" step="0.01" value="0.8">
 
-      <div style="height:10px;"></div>
-
       <div class="param-row">
         <span class="param-label">μ₂</span>
         <span class="param-value" id="mu2val">1.2</span>
@@ -81,35 +102,39 @@
     <div>
       <div class="subsection-title">Interaction strengths</div>
 
-      <div class="param-row">
-        <span class="param-label">β₁₁</span>
-        <span class="param-value" id="b11val">0.0</span>
+      <div class="interaction-grid">
+        <div class="interaction-control">
+          <div class="param-row">
+            <span class="param-label">β₁₁</span>
+            <span class="param-value" id="b11val">0.0</span>
+          </div>
+          <input type="range" id="b11" min="-1.0" max="1.0" step="0.01" value="0.0">
+        </div>
+
+        <div class="interaction-control">
+          <div class="param-row">
+            <span class="param-label">β₁₂</span>
+            <span class="param-value" id="b12val">0.0</span>
+          </div>
+          <input type="range" id="b12" min="-1.0" max="1.0" step="0.01" value="0.0">
+        </div>
+
+        <div class="interaction-control">
+          <div class="param-row">
+            <span class="param-label">β₂₁</span>
+            <span class="param-value" id="b21val">0.0</span>
+          </div>
+          <input type="range" id="b21" min="-1.0" max="1.0" step="0.01" value="0.0">
+        </div>
+
+        <div class="interaction-control">
+          <div class="param-row">
+            <span class="param-label">β₂₂</span>
+            <span class="param-value" id="b22val">0.0</span>
+          </div>
+          <input type="range" id="b22" min="-1.0" max="1.0" step="0.01" value="0.0">
+        </div>
       </div>
-      <input type="range" id="b11" min="-1.0" max="1.0" step="0.01" value="0.0">
-
-      <div style="height:10px;"></div>
-
-      <div class="param-row">
-        <span class="param-label">β₁₂</span>
-        <span class="param-value" id="b12val">0.0</span>
-      </div>
-      <input type="range" id="b12" min="-1.0" max="1.0" step="0.01" value="0.0">
-
-      <div style="height:10px;"></div>
-
-      <div class="param-row">
-        <span class="param-label">β₂₁</span>
-        <span class="param-value" id="b21val">0.0</span>
-      </div>
-      <input type="range" id="b21" min="-1.0" max="1.0" step="0.01" value="0.0">
-
-      <div style="height:10px;"></div>
-
-      <div class="param-row">
-        <span class="param-label">β₂₂</span>
-        <span class="param-value" id="b22val">0.0</span>
-      </div>
-      <input type="range" id="b22" min="-1.0" max="1.0" step="0.01" value="0.0">
     </div>
 
     <hr>
