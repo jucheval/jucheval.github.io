@@ -1,5 +1,5 @@
 metadata:
-  last_updated: '2026-03-25'
+  last_updated: '2026-04-08'
 papers:
   PLia_KwAAAAJ:0EnyYjriUFMC:
     citations: 14
@@ -52,7 +52,7 @@ papers:
   PLia_KwAAAAJ:_FxGoFyzp5QC:
     citations: 1
     title: Inferring the dependence graph density of binary graphical models in high dimension
-    year: '2024'
+    year: '2026'
   PLia_KwAAAAJ:hqOjcs7Dif8C:
     citations: 17
     title: 'Diffusion approximation of multi-class Hawkes processes: theoretical and numerical analysis'
