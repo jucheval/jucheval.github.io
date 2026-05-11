@@ -1,5 +1,5 @@
 metadata:
-  last_updated: '2026-04-08'
+  last_updated: '2026-05-11'
 papers:
   PLia_KwAAAAJ:0EnyYjriUFMC:
     citations: 14
@@ -18,7 +18,7 @@ papers:
     title: Natural selection and the advantage of recombination
     year: '2020'
   PLia_KwAAAAJ:9yKSN-GCB0IC:
-    citations: 136
+    citations: 138
     title: Mean-field limit of generalized Hawkes processes
     year: '2017'
   PLia_KwAAAAJ:IjCSPb-OGe4C:
@@ -30,7 +30,7 @@ papers:
     title: Critical Point Processes Obtained from a Gaussian Random Field with a View Towards Statistics
     year: '2025'
   PLia_KwAAAAJ:Tyk-4Ss8FVUC:
-    citations: 72
+    citations: 73
     title: Mean field limits for nonlinear spatially extended Hawkes processes with exponential memory kernels
     year: '2019'
   PLia_KwAAAAJ:UebtZRa9Y70C:
