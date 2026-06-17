@@ -1,5 +1,5 @@
 metadata:
-  last_updated: '2026-05-11'
+  last_updated: '2026-06-17'
 papers:
   PLia_KwAAAAJ:0EnyYjriUFMC:
     citations: 14
@@ -22,7 +22,7 @@ papers:
     title: Mean-field limit of generalized Hawkes processes
     year: '2017'
   PLia_KwAAAAJ:IjCSPb-OGe4C:
-    citations: 2
+    citations: 3
     title: "Approximation par champ-moyen: le couplage \xE0 la Sznitman pour les nuls"
     year: '2017'
   PLia_KwAAAAJ:LkGwnXOMwfcC:
@@ -30,7 +30,7 @@ papers:
     title: Critical Point Processes Obtained from a Gaussian Random Field with a View Towards Statistics
     year: '2025'
   PLia_KwAAAAJ:Tyk-4Ss8FVUC:
-    citations: 73
+    citations: 74
     title: Mean field limits for nonlinear spatially extended Hawkes processes with exponential memory kernels
     year: '2019'
   PLia_KwAAAAJ:UebtZRa9Y70C:
@@ -46,7 +46,7 @@ papers:
     title: Fluctuations for spatially extended Hawkes processes
     year: '2020'
   PLia_KwAAAAJ:YsMSGLbcyi4C:
-    citations: 31
+    citations: 32
     title: 'Uniform decomposition of probability measures: quantization, clustering and rate of convergence'
     year: '2018'
   PLia_KwAAAAJ:_FxGoFyzp5QC:
@@ -62,7 +62,7 @@ papers:
     title: Detection of dependence patterns with delay
     year: '2015'
   PLia_KwAAAAJ:u5HHmVD_uO8C:
-    citations: 105
+    citations: 106
     title: Microscopic approach of a time elapsed neural model
     year: '2015'
   PLia_KwAAAAJ:ufrVoPGSRksC:
