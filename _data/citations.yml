@@ -1,5 +1,5 @@
 metadata:
-  last_updated: '2026-06-17'
+  last_updated: '2026-07-13'
 papers:
   PLia_KwAAAAJ:0EnyYjriUFMC:
     citations: 14
@@ -30,7 +30,7 @@ papers:
     title: Critical Point Processes Obtained from a Gaussian Random Field with a View Towards Statistics
     year: '2025'
   PLia_KwAAAAJ:Tyk-4Ss8FVUC:
-    citations: 74
+    citations: 75
     title: Mean field limits for nonlinear spatially extended Hawkes processes with exponential memory kernels
     year: '2019'
   PLia_KwAAAAJ:UebtZRa9Y70C:
@@ -46,7 +46,7 @@ papers:
     title: Fluctuations for spatially extended Hawkes processes
     year: '2020'
   PLia_KwAAAAJ:YsMSGLbcyi4C:
-    citations: 32
+    citations: 33
     title: 'Uniform decomposition of probability measures: quantization, clustering and rate of convergence'
     year: '2018'
   PLia_KwAAAAJ:_FxGoFyzp5QC:
