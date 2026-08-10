@@ -1,5 +1,5 @@
 metadata:
-  last_updated: '2026-07-29'
+  last_updated: '2026-08-10'
 papers:
   PLia_KwAAAAJ:0EnyYjriUFMC:
     citations: 14
@@ -18,7 +18,7 @@ papers:
     title: Natural selection and the advantage of recombination
     year: '2020'
   PLia_KwAAAAJ:9yKSN-GCB0IC:
-    citations: 139
+    citations: 137
     title: Mean-field limit of generalized Hawkes processes
     year: '2017'
   PLia_KwAAAAJ:IjCSPb-OGe4C:
@@ -30,7 +30,7 @@ papers:
     title: Critical Point Processes Obtained from a Gaussian Random Field with a View Towards Statistics
     year: '2025'
   PLia_KwAAAAJ:Tyk-4Ss8FVUC:
-    citations: 75
+    citations: 74
     title: Mean field limits for nonlinear spatially extended Hawkes processes with exponential memory kernels
     year: '2019'
   PLia_KwAAAAJ:UebtZRa9Y70C:
@@ -50,11 +50,11 @@ papers:
     title: 'Uniform decomposition of probability measures: quantization, clustering and rate of convergence'
     year: '2018'
   PLia_KwAAAAJ:_FxGoFyzp5QC:
-    citations: 1
+    citations: 2
     title: Inferring the dependence graph density of binary graphical models in high dimension
     year: '2026'
   PLia_KwAAAAJ:hqOjcs7Dif8C:
-    citations: 17
+    citations: 16
     title: 'Diffusion approximation of multi-class Hawkes processes: theoretical and numerical analysis'
     year: '2021'
   PLia_KwAAAAJ:u-x6o8ySG0sC:
@@ -62,7 +62,7 @@ papers:
     title: Detection of dependence patterns with delay
     year: '2015'
   PLia_KwAAAAJ:u5HHmVD_uO8C:
-    citations: 106
+    citations: 108
     title: Microscopic approach of a time elapsed neural model
     year: '2015'
   PLia_KwAAAAJ:ufrVoPGSRksC:
@@ -70,6 +70,6 @@ papers:
     title: Community detection for binary graphical models in high dimension
     year: '2024'
   PLia_KwAAAAJ:zYLM7Y9cAGgC:
-    citations: 6
+    citations: 5
     title: "Mod\xE9lisation de grands r\xE9seaux de neurones par processus de Hawkes"
     year: '2016'
